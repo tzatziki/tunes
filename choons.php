@@ -1,10 +1,12 @@
 <?php
 
 function random_artist_factory($filename) {
-  $fh = file($filename);
-  $count = count($fh);
-  $displayer = function() use ($fh, $count) {
-    return htmlentities(trim($fh[rand(0, $count - 1)]));
+  $data = file($filename);
+  $count = count($data);
+  $displayer = function() use ($data, $count) {
+    $item = $data[rand(0, $count - 1)];
+    unset($data[$item]);
+    return htmlentities(trim($item));
   };
   return $displayer;
 }
