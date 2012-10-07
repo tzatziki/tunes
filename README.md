@@ -1,0 +1,1 @@
+this thing should produce a little bit of HTML with a random artist in it
